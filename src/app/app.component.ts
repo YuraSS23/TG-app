@@ -8,9 +8,17 @@ import {UpperCasePipe} from "@angular/common";
   imports: [RouterOutlet, UpperCasePipe],
   template: `
     <h1>{{ title | uppercase}}</h1>
-    <button>Change title</button>
+    <button (click)="title='new title'">Change title</button>
+    <ul>
+      @for (item of items; track item) {
+      <li>{{ item }}</li>
+      } @if (title === 'new title') {
+      <hr />
+      }
+    </ul>
   `
 })
 export class AppComponent {
   title = 'tgApp';
+  items = [1,2,3,4,5]
 }
