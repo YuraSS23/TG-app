@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {IProduct, ProductsService} from "../../services/products.service";
+import {TelegramService} from "../../services/telegram.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-product',
@@ -8,5 +11,14 @@ import { Component } from '@angular/core';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-
+  product: IProduct
+  constructor(
+    private products: ProductsService,
+    private telegram: TelegramService,
+    private route: ActivatedRoute,
+    private router: Router,
+    ) {
+    const id = this.route.snapshot.paramMap.get("id")
+    this.product = this.products.getById(Number(id))
+  }
 }

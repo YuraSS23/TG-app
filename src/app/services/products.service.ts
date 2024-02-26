@@ -1,9 +1,5 @@
 import {Injectable} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 export interface IProduct {
   id?: number
   title: string
@@ -46,9 +42,16 @@ export const products: IProduct[] = [
   }
 ]
 
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ProductsService {
   readonly products: IProduct[] = products
   getById (id: number) {
     return this.products.find(p => p.id === id)
+  }
+  getAll () {
+    return this.products
   }
 }

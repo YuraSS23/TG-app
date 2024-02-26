@@ -1,1 +1,8 @@
-<p>product works!</p>
+<div class="product-image">
+  <img [src]="product.image" alt="product.title">
+</div>
+<div class="product-info">
+  <h3>{{ product.title }}</h3>
+  <p class="hint">{{ product.price }}</p>
+  <p class="hint">{{ product.description }}</p>
+</div>
