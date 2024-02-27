@@ -7,4 +7,5 @@ export const routes: Routes = [
   {path: '', component: ShopComponent, pathMatch: 'full'},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'product/:id', component: ProductComponent},
+  {path: "**", redirectTo: ''},
 ];

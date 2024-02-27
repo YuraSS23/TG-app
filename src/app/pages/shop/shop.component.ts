@@ -18,6 +18,6 @@ export class ShopComponent {
   telegram = inject(TelegramService);
   products = inject(ProductsService);
   constructor() {
-    this.telegram.MainButton.show();
+    this.telegram.BackButton.hide();
   }
 }

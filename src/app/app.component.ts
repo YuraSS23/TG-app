@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {UpperCasePipe} from "@angular/common";
+import {TelegramService} from "./services/telegram.service";
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,10 @@ import {UpperCasePipe} from "@angular/common";
   `
 })
 export class AppComponent {
+  telegram = inject(TelegramService)
+  constructor() {
+    this.telegram.ready()
+  }
   title = 'tgApp';
   items = [1,2,3,4,5]
 }

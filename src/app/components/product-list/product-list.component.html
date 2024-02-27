@@ -2,15 +2,16 @@
 <h4>{{ subTitle }}</h4>
 <ul class="products">
   @for (product of products; track product.id) {
-    <li class="product-item" [routerLink] = "'/product/'+product.id">
+    <li class="product-item" >
       <div class="product-image">
         <img [src]="product.image" alt="product.title">
       </div>
       <div class="product-info">
         <h3>{{ product.title }}</h3>
-        <p class="hint">{{ product.price }}</p>
-        <p class="hint">{{ product.description }}</p>
+        <span class="hint">{{ product.price | currency: "BYN " }}</span>
+        <button class="btnAdd" [routerLink] = "'/product/'+product.id">More...</button>
       </div>
+      <button class="btnAdd">Add to cart</button>
     </li>
   }
 </ul>
